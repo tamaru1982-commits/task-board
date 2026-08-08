@@ -2,11 +2,20 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-## Project status
+## Project overview
 
-This project is currently empty — no code, framework, or architecture has been decided yet. Once the tech stack and structure are established, update this file with:
-- Build / lint / test commands (including how to run a single test)
-- High-level architecture and code organization
+A React + Vite task board app. Add tasks via text input, toggle completion with a checkbox, delete tasks, and completed tasks render grayed out with strikethrough.
+
+## Commands
+
+- `npm install` — install dependencies
+- `npm run dev` — start the Vite dev server (default port 5173)
+- `npm run build` — production build to `dist/`
+- `npm run preview` — preview the production build
+
+## Architecture
+
+Single-component app: `src/App.jsx` holds all task state (`{ id, text, done }[]`) via `useState` and handles add/toggle/delete inline. No backend or persistence — state resets on reload. Styling is plain CSS in `src/App.css` (`.task.done` applies the grayed-out/strikethrough look) and `src/index.css` (page-level defaults).
 
 ## Git ワークフロー
 
