@@ -15,7 +15,7 @@ A React + Vite task board app. Add tasks via text input, toggle completion with 
 
 ## Architecture
 
-Single-component app: `src/App.jsx` holds all task state (`{ id, text, done }[]`) via `useState` and handles add/toggle/delete inline. No backend or persistence — state resets on reload. Styling is plain CSS in `src/App.css` (`.task.done` applies the grayed-out/strikethrough look) and `src/index.css` (page-level defaults).
+Single-component app: `src/App.jsx` holds all task state (`{ id, text, done }[]`) via `useState` and handles add/toggle/delete inline. Tasks persist to `localStorage` (key `task-board:tasks`) via a `useEffect` that runs on every state change; initial state is read from `localStorage` in `useState`'s lazy initializer. No backend. Styling is plain CSS in `src/App.css` (`.task.done` applies the grayed-out/strikethrough look) and `src/index.css` (page-level defaults).
 
 ## Git ワークフロー
 
