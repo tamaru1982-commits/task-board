@@ -17,6 +17,12 @@ A React + Vite task board app. Add tasks via text input, toggle completion with 
 
 Single-component app: `src/App.jsx` holds all task state (`{ id, text, done }[]`) via `useState` and handles add/toggle/delete inline. Tasks persist to `localStorage` (key `task-board:tasks`) via a `useEffect` that runs on every state change; initial state is read from `localStorage` in `useState`'s lazy initializer. No backend. Styling is plain CSS in `src/App.css` (`.task.done` applies the grayed-out/strikethrough look) and `src/index.css` (page-level defaults).
 
+## Deployment
+
+Deploys to GitHub Pages at `https://tamaru1982-commits.github.io/task-board/` via `.github/workflows/deploy.yml`, which builds with Vite and publishes `dist/` on every push to `main`. `vite.config.js` sets `base: '/task-board/'` to match the Pages project-site path — required because it's served from a subpath, not the domain root.
+
+One-time manual step (not automatable from here): in the repo's Settings → Pages, set **Source** to **GitHub Actions**.
+
 ## Git ワークフロー
 
 - コードに変更を加えたら、その都度コミットしてGitHubにプッシュすること（変更をローカルに留め置かない）。
